@@ -25,22 +25,3 @@ export async function POST(request, response) {
     return NextResponse.json({ success: false, error: error.message });
   }
 }
-
-export async function POST(request, response) {
-  try {
-    const { postId } = response.params;
-    const { text } = await request.json();
-    const newComment = await prisma.comment.create({
-      data: {
-        text,
-        postId,
-      },
-    });
-    return NextResponse.json({
-      success: true,
-      newComment,
-    });
-  } catch (error) {
-    return NextResponse.json({ success: false, error: error.message });
-  }
-}
