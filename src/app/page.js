@@ -10,7 +10,11 @@ import { prisma } from "@/lib/prisma.js";
 export const dynamic = "force-dynamic";
 export default async function Home() {
   //GET messages
-  const posts = await prisma.post.findMany();
+  const posts = await prisma.post.findMany({
+    orderBy: {
+      CreatedAt: "desc",
+    },
+  });
   //console.log(info);
   // console.log(posts);
 

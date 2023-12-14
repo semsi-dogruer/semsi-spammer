@@ -9,7 +9,7 @@ export default function EditComments({ id, setCommentVisible, setCounter }) {
 
   //this is to check if comment is in edit box
   async function handleComment() {
-    if (commentText.length == 0) {
+    if (commentText.length === 0) {
       alert("enter text to submit");
       return;
     }
@@ -23,6 +23,7 @@ export default function EditComments({ id, setCommentVisible, setCounter }) {
       }),
       cache: "no-store",
     });
+    console.log(response.ok);
     if (response.ok) {
       setCounter((prevCounter) => prevCounter + 1);
       setCommentVisible(""); //make comment box disappear

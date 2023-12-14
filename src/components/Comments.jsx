@@ -8,7 +8,7 @@ export function Comments({ id, counter }) {
   const router = useRouter();
 
   async function fetchComments() {
-    const res = await fetch(`/api/posts/${id}/comments`, { cache: "no-store" });
+    const res = await fetch(`/api/posts/${id}/comments`);
     const result = await res.json();
     setComment(result.comments);
   }
