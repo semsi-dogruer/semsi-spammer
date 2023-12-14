@@ -1,7 +1,5 @@
 "use client";
 
-import API_URL from "@/lib/API-URL.js";
-
 //Component to create a new post
 import { useState } from "react";
 import { useRouter } from "next/navigation.js";
@@ -21,7 +19,7 @@ export default function NewMessage() {
   async function handleSubmit(e) {
     e.preventDefault();
     //send request to server to add the message to database
-    const res = await fetch(`${API_URL}/api/posts`, {
+    const res = await fetch(`/api/posts`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -33,7 +31,7 @@ export default function NewMessage() {
       }),
     });
     const info = await res.json();
-    console.log(info);
+    //console.log(info);
 
     if (info.success) {
       setError("");

@@ -1,5 +1,5 @@
 "use client";
-import API_URL from "@/lib/API-URL.js";
+
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -13,7 +13,7 @@ export default function EditComments({ id, setCommentVisible, setCounter }) {
       alert("enter text to submit");
       return;
     }
-    const response = await fetch(`${API_URL}/api/posts/${id}/comments`, {
+    const response = await fetch(`/api/posts/${id}/comments`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

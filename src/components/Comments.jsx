@@ -1,6 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation.js";
-import API_URL from "@/lib/API-URL.js";
+
 import { useState, useEffect } from "react";
 
 export function Comments({ id, counter }) {
@@ -8,7 +8,7 @@ export function Comments({ id, counter }) {
   const router = useRouter();
 
   async function fetchComments() {
-    const res = await fetch(`${API_URL}/api/posts/${id}/comments`);
+    const res = await fetch(`/api/posts/${id}/comments`, { cache: "no-store" });
     const result = await res.json();
     setComment(result.comments);
   }

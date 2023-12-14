@@ -1,5 +1,5 @@
 "use client";
-import API_URL from "@/lib/API-URL.js";
+
 //import Message from "./Message.jsx";
 import { AiFillLike } from "react-icons/ai";
 import { MdDelete } from "react-icons/md";
@@ -19,7 +19,7 @@ export default function Messages({ posts }) {
   const [counter, setCounter] = useState(0);
 
   async function incrementLikes(id1) {
-    const response = await fetch(`${API_URL}/api/posts/${id1}/likes`, {
+    const response = await fetch(`/api/posts/${id1}/likes`, {
       method: "POST",
       cache: "no-store",
     });
@@ -27,7 +27,7 @@ export default function Messages({ posts }) {
   }
 
   async function handleDeleteButton(id1) {
-    const response = await fetch(`${API_URL}/api/posts/${id1}`, {
+    const response = await fetch(`/api/posts/${id1}`, {
       method: "DELETE",
       cache: "no-store",
     });
