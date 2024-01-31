@@ -20,7 +20,7 @@ export default async function Home() {
 
   return (
     <div>
-      <h1>Semsi's Spammer</h1>
+      <h1>Semsi's Anonymous Message Board</h1>
       <NewMessage />
       <Messages posts={posts} />
     </div>
